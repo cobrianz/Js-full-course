@@ -199,3 +199,34 @@ form input {
    padding: .5rem;
    animation: 5s  linear infinite;
 }
+
+
+@media screen and (max-width: 1250px) {
+    .form-container {
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 760px) {
+
+    .form-container {
+        border: none;
+        height: 100%;
+
+    }
+    .form_banner {
+        display: none;
+    }
+
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .form-container{
+        width: 100%;
+        padding-top: 2rem;
+    }
+}
