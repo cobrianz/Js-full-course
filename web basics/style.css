@@ -222,6 +222,10 @@ form input {
     .form {
         width: 100%;
     }
+    
+.form_bottom a {
+    font-size: 14px;
+}
 }
 
 @media screen and (max-width: 550px) {
