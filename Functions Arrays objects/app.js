@@ -187,7 +187,7 @@ for (let key in person) {
 
 // Using Object.keys(), Object.values(), Object.entries()
 const keys = Object.keys(person);
-// console.log(keys); // Output: ["name", "age", "job"]
+//console.log(keys); // Output: ["name", "age", "job"]
 const values = Object.values(person);
 // console.log(values); // Output: ["Alice", 26, "Developer"]
 const entries = Object.entries(person);
@@ -209,5 +209,5 @@ function getHighEarners(dept, minSalary) {
       bonus: emp.salary * 1.1,
     }));
 }
-console.log(getHighEarners("IT", 55000));
+// console.log(getHighEarners("IT", 55000));
 // Output: [{name: "Charlie", bonus: 82500}]
