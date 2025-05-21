@@ -209,5 +209,5 @@ function getHighEarners(dept, minSalary) {
       bonus: emp.salary * 1.1,
     }));
 }
-// console.log(getHighEarners("IT", 55000));
+console.log(getHighEarners("IT", 55000));
 // Output: [{name: "Charlie", bonus: 82500}]
