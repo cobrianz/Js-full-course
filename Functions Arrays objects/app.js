@@ -1,5 +1,4 @@
-// JavaScript Functions, Arrays, and Objects: Detailed Notes
-
+// JavaScript Functions, Arrays, and Objects:
 // === FUNCTIONS ===
 // A function is a reusable block of code designed to perform a specific task.
 // Functions can take inputs (parameters), process them, and return an output.
@@ -49,8 +48,8 @@ function sum(...numbers) {
 // Anonymous Functions
 // Functions without a name, often used as callbacks.
 setTimeout(function () {
-  // console.log("This runs after 1 second");
-}, 1000);
+//console.log("This runs after 3 second");
+}, 3000);
 
 // Immediately Invoked Function Expression (IIFE)
 // A function that runs immediately after definition.
