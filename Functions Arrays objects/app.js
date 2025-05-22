@@ -101,7 +101,7 @@ const upperFruits = fruits.map((fruit) => fruit.toUpperCase());
 
 // filter(): Creates a new array with elements that pass a test.
 const longFruits = fruits.filter((fruit) => fruit.length > 5);
-// console.log(longFruits); // Output: ["banana"]
+// console.log(longFruits); // Output: ["banana", "orange"]
 
 // reduce(): Reduces the array to a single value by applying a function.
 const numbers = [1, 2, 3, 4];

@@ -1,11 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Functions, Arrays, and Objects</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="./app.js"></script>
+  <div class="container">
+    <h1>JavaScript Functions, Arrays, and Objects</h1>
+    
+    <!-- Functions Section -->
+    <section class="section">
+      <h2>Functions</h2>
+      <p>Functions are reusable blocks of code that perform specific tasks. Edit the code below and click "Run" to see the output.</p>
+      
+      <h3>Function Declaration</h3>
+      <p>This code defines a function called <code>greet</code> that takes a name and returns a greeting message. It uses a function declaration, which is hoisted, meaning it can be called before its definition.</p>
+      <textarea id="greet-code">function greet(name) {
+  return `Hello, ${name}!`;
+}
+console.log(greet("Alice"));</textarea>
+      <button onclick="runCode('greet-code', 'greet-output')">Run</button>
+      <p id="greet-output" class="output"></p>
+
+      <h3>Function Expression</h3>
+      <p>This code creates a function called <code>add</code> using a function expression, stored in a variable. It takes two numbers, adds them, and returns the sum. Function expressions are not hoisted.</p>
+      <textarea id="add-code">const add = function(a, b) {
+  return a + b;
+};
+console.log(add(2, 3));</textarea>
+      <button onclick="runCode('add-code', 'add-output')">Run</button>
+      <p id="add-output" class="output"></p>
+
+      <h3>Arrow Function</h3>
+      <p>This code defines an arrow function called <code>multiply</code>, a concise way to write functions in ES6. It multiplies two numbers and returns the result without needing a <code>return</code> statement for single expressions.</p>
+      <textarea id="multiply-code">const multiply = (x, y) => x * y;
+console.log(multiply(4, 5));</textarea>
+      <button onclick="runCode('multiply-code', 'multiply-output')">Run</button>
+      <p id="multiply-output" class="output"></p>
+
+      <h3>Default Parameters</h3>
+      <p>This code defines a <code>welcome</code> function with a default parameter <code>user = "Guest"</code>. If no argument is provided, it uses "Guest"; otherwise, it uses the provided name in the greeting.</p>
+      <textarea id="welcome-code">function welcome(user = "Guest") {
+  return `Welcome, ${user}!`;
+}
+console.log(welcome());
+console.log(welcome("Bob"));</textarea>
+      <button onclick="runCode('welcome-code', 'welcome-output')">Run</button>
+      <p id="welcome-output" class="output"></p>
+
+      <h3>Rest Parameters</h3>
+      <p>This code uses rest parameters (<code>...numbers</code>) in the <code>sum</code> function to collect all arguments into an array. It then uses <code>reduce</code> to sum them up.</p>
+      <textarea id="sum-code">function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+console.log(sum(1, 2, 3, 4));</textarea>
+      <button onclick="runCode('sum-code', 'sum-output')">Run</button>
+      <p id="sum-output" class="output"></p>
+
+      <h3>Anonymous Function & IIFE</h3>
+      <p>This code shows an anonymous function inside <code>setTimeout</code>, which runs after 3 seconds, and an Immediately Invoked Function Expression (IIFE) that runs immediately. Outputs go to the console.</p>
+      <textarea id="anon-code">setTimeout(function() {
+  console.log("This runs after 3 seconds");
+}, 3000);
+
+(function() {
+  console.log("IIFE runs immediately!");
+})();</textarea>
+      <p class="output">Check console for output. Edit and click "Run" to execute modified code.</p>
+      <button onclick="runCode('anon-code', 'anon-output')">Run</button>
+      <p id="anon-output" class="output"></p>
+    </section>
+
+    <!-- Arrays Section -->
+    <section class="section">
+      <h2>Arrays</h2>
+      <p>Arrays are ordered, zero-indexed lists for storing multiple values. Edit the code and run to test array operations.</p>
+
+      <h3>Array Declaration & Access</h3>
+      <p>This code creates an array <code>fruits</code> and accesses its first element using index 0. It also shows the array's length using the <code>length</code> property.</p>
+      <textarea id="fruits-code">const fruits = ["apple", "banana", "orange"];
+const firstFruit = fruits[0];
+console.log(firstFruit);
+console.log(fruits.length);</textarea>
+      <button onclick="runCode('fruits-code', 'fruits-output')">Run</button>
+      <p id="fruits-output" class="output"></p>
+
+      <h3>Array Methods</h3>
+      <p>This code demonstrates array methods: <code>push</code> adds an element, <code>pop</code> removes the last, <code>unshift</code> adds to the start, <code>shift</code> removes from the start, <code>map</code> transforms elements, <code>filter</code> selects elements, and <code>reduce</code> sums numbers.</p>
+      <textarea id="array-methods-code">const fruits = ["apple", "banana", "orange"];
+fruits.push("grape");
+fruits.pop();
+fruits.unshift("kiwi");
+fruits.shift();
+const upperFruits = fruits.map(fruit => fruit.toUpperCase());
+const longFruits = fruits.filter(fruit => fruit.length > 5);
+const numbers = [1, 2, 3, 4];
+const sumNumbers = numbers.reduce((total, num) => total + num, 0);
+console.log(upperFruits);
+console.log(longFruits);
+console.log(sumNumbers);</textarea>
+      <button onclick="runCode('array-methods-code', 'array-methods-output')">Run</button>
+      <p id="array-methods-output" class="output"></p>
+    </section>
+
+    <!-- Objects Section -->
+    <section class="section">
+      <h2>Objects</h2>
+      <p>Objects store key-value pairs for structured data. Edit the code to experiment with object properties and methods.</p>
+
+      <h3>Object Declaration & Access</h3>
+      <p>This code creates an object <code>person</code> with properties and accesses them using dot notation (<code>person.name</code>) and bracket notation (<code>person["age"]</code>) for dynamic keys.</p>
+      <textarea id="person-code">const person = {
+  name: "Alice",
+  age: 25,
+  city: "New York"
+};
+const personName = person.name;
+const key = "age";
+const personAge = person[key];
+console.log(personName);
+console.log(personAge);</textarea>
+      <button onclick="runCode('person-code', 'person-output')">Run</button>
+      <p id="person-output" class="output"></p>
+
+      <h3>Object Manipulation</h3>
+      <p>This code shows how to add a new property (<code>job</code>), modify an existing one (<code>age</code>), and delete a property (<code>city</code>) from the <code>person</code> object.</p>
+      <textarea id="person-manip-code">const person = {
+  name: "Alice",
+  age: 25,
+  city: "New York"
+};
+person.job = "Developer";
+person.age = 26;
+delete person.city;
+console.log(person);</textarea>
+      <button onclick="runCode('person-manip-code', 'person-manip-output')">Run</button>
+      <p id="person-manip-output" class="output"></p>
+
+      <h3>Object Methods & Destructuring</h3>
+      <p>This code defines an object <code>calculator</code> with methods <code>add</code> and <code>subtract</code>. It also uses destructuring to extract <code>name</code> and <code>age</code> from <code>person</code> into variables.</p>
+      <textarea id="calculator-code">const calculator = {
+  add: function(a, b) { return a + b; },
+  subtract(a, b) { return a - b; }
+};
+const person = { name: "Alice", age: 26 };
+const { name, age } = person;
+console.log(calculator.add(5, 3));
+console.log(name, age);</textarea>
+      <button onclick="runCode('calculator-code', 'calculator-output')">Run</button>
+      <p id="calculator-output" class="output"></p>
+
+      <h3>Array of Objects & Looping</h3>
+      <p>This code creates an array of objects (<code>students</code>) and accesses a property. It also loops through <code>person</code> using <code>for...in</code> and gets keys with <code>Object.keys</code>.</p>
+      <textarea id="students-code">const students = [
+  { id: 1, name: "Alice", grade: "A" },
+  { id: 2, name: "Bob", grade: "B" }
+];
+const person = { name: "Alice", age: 26, job: "Developer" };
+for (let key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+const keys = Object.keys(person);
+console.log(students[0].name);
+console.log(keys);</textarea>
+      <button onclick="runCode('students-code', 'students-output')">Run</button>
+      <p id="students-output" class="output"></p>
+    </section>
+
+    <!-- Practical Example Section -->
+    <section class="section">
+      <h2>Practical Example</h2>
+      <p>Combine functions, arrays, and objects to filter and transform employee data. Edit the code or use inputs to test.</p>
+      <p>This code defines an <code>employees</code> array and a <code>getHighEarners</code> function that filters employees by department and salary, then calculates a 10% bonus for matching employees.</p>
+      <textarea id="high-earners-code">const employees = [
+  { name: "Alice", salary: 50000, department: "IT" },
+  { name: "Bob", salary: 60000, department: "HR" },
+  { name: "Charlie", salary: 75000, department: "IT" }
+];
+function getHighEarners(dept, minSalary) {
+  return employees
+    .filter(emp => emp.department === dept && emp.salary > minSalary)
+    .map(emp => ({ name: emp.name, bonus: emp.salary * 1.1 }));
+}
+console.log(getHighEarners("IT", 55000));</textarea>
+      <div class="input-group">
+        <input id="dept-input" type="text" placeholder="Enter department (e.g., IT)">
+        <input id="salary-input" type="number" placeholder="Min salary">
+        <button onclick="runHighEarners()">Run with Inputs</button>
+      </div>
+      <button onclick="runCode('high-earners-code', 'high-earners-output')">Run Code</button>
+      <p id="high-earners-output" class="output"></p>
+    </section>
+  </div>
+
+  <script>
+    // Function to run user-edited code
+    function runCode(codeId, outputId) {
+      const code = document.getElementById(codeId).value;
+      const outputElement = document.getElementById(outputId);
+      try {
+        // Redirect console.log to capture output
+        let consoleOutput = [];
+        const originalConsoleLog = console.log;
+        console.log = (...args) => {
+          consoleOutput.push(args.map(item => JSON.stringify(item)).join(" "));
+          originalConsoleLog.apply(console, args);
+        };
+        
+        // Evaluate the code
+        eval(code);
+        
+        // Display captured output
+        outputElement.textContent = consoleOutput.join("\n") || "No output";
+        outputElement.classList.remove("error");
+        
+        // Restore console.log
+        console.log = originalConsoleLog;
+      } catch (error) {
+        outputElement.textContent = `Error: ${error.message}`;
+        outputElement.classList.add("error");
+      }
+    }
+
+    // Practical Example with inputs
+    const employees = [
+      { name: "Alice", salary: 50000, department: "IT" },
+      { name: "Bob", salary: 60000, department: "HR" },
+      { name: "Charlie", salary: 75000, department: "IT" }
+    ];
+    function getHighEarners(dept, minSalary) {
+      return employees
+        .filter(emp => emp.department === dept && emp.salary > minSalary)
+        .map(emp => ({ name: emp.name, bonus: emp.salary * 1.1 }));
+    }
+    function runHighEarners() {
+      const dept = document.getElementById("dept-input").value;
+      const minSalary = parseInt(document.getElementById("salary-input").value) || 0;
+      const outputElement = document.getElementById("high-earners-output");
+      try {
+        const result = getHighEarners(dept, minSalary);
+        outputElement.textContent = JSON.stringify(result);
+        outputElement.classList.remove("error");
+      } catch (error) {
+        outputElement.textContent = `Error: ${error.message}`;
+        outputElement.classList.add("error");
+      }
+    }
+
+    // Run IIFE immediately
+    (function() {
+      console.log("IIFE runs immediately!");
+    })();
+    setTimeout(function() {
+      console.log("This runs after 3 seconds");
+    }, 3000);
+  </script>
 </body>
 </html>
